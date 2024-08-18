@@ -1,0 +1,196 @@
+<html>
+<head>
+    <title>Funciona?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #c6f0c6);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container h2 {
+            color: #32cd32;
+            font-size: 2em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .container p {
+            font-size: 1.2em;
+        }
+
+ h1 {
+            color: #333;
+        }
+
+        .flower-field {
+            position: relative;
+            height: 300px;
+            background-image: url('https://via.placeholder.com/800x300?text=Campo+de+Flores');
+            background-size: cover;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .character {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://via.placeholder.com/50?text=Personaje');
+            background-size: cover;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+            .no-gif, .efecto:hover .gif{
+             display: flex;
+          }
+            .gif, .efecto:hover .no-gif{
+            display: none;
+            }
+
+
+
+
+  /* Estilos del contenedor y las imágenes */
+        .efecto {
+            position: relative;
+            width: 50px; /* Ajusta el tamaño según tus necesidades */
+            height: 60px;
+        }
+
+        /* Inicialmente, oculta la imagen GIF */
+        .gif {
+            display: none;
+        }
+
+        /* Muestra la imagen GIF y oculta la imagen estática cuando se pasa el cursor sobre el contenedor */
+        .efecto:hover .gif {
+            display: block;
+        }
+
+        .efecto:hover .no-gif {
+            display: none;
+        }
+
+        /* Transición para suavizar el cambio entre las imágenes */
+        .no-gif, .gif {
+            transition: opacity 0.3s ease;
+        }
+
+        /* Animación de salto */
+        @keyframes jump {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .efecto:hover .gif, .efecto:hover .no-gif {
+            animation: jump 0.5s ease;
+        }
+
+
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h2>1, 2, 3 y 4</h2>
+        <p> hola, lo puedes ver ¿no?</p>
+        <p>Si es asi entonces funciona, yei¡ </p>
+        <p><strong>dato:</strong> El gato cambia, creo recordar</p>
+    </section>
+       <center>
+          <div class="efecto">
+            <!-- Imagen estática -->
+            <img src="wab/Icon de gato.png" width="50" height="60" alt="Icono de Gato" class="no-gif">
+            <!-- Imagen GIF -->
+            <img src="wab/1.png" width="50" height="50" alt="GIF de Pikachu" class="gif">
+        </div>
+      </center>
+ 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const character = document.querySelector('.character');
+            let x = 20;
+            let y = 20;
+            const step = 10;
+
+            function moveCharacter(e) {
+                switch (e.key) {
+                    case 'ArrowUp':
+                        y = Math.max(0, y - step);
+                        break;
+                    case 'ArrowDown':
+                        y = Math.min(window.innerHeight - character.clientHeight, y + step);
+                        break;
+                    case 'ArrowLeft':
+                        x = Math.max(0, x - step);
+                        break;
+                    case 'ArrowRight':
+                        x = Math.min(window.innerWidth - character.clientWidth, x + step);
+                        break;
+                }
+                character.style.left = ${x}px;
+                character.style.bottom = ${y}px;
+            }
+
+            window.addEventListener('keydown', moveCharacter);
+        });
+    </script>
+</body>
+</html>
+ 
